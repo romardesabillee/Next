@@ -1,14 +1,14 @@
-import { useState } from "react";
+import { useState, memo } from "react";
 
-export default function Counter({ setCount }) {
-
-    function updateCount() {
-        setCount((prevCount) => prevCount);
-    }
+function Counter({ count, setCount }) {
+    console.log('Counter component');
 
     return (
         <div className="p-3">
-            <button className="default-button" onClick={updateCount}>Increment</button>
+            <h1 className="text-4xl">{count}</h1>
+            <button onClick={setCount}>Increment</button>
         </div>
     );
 }
+
+export default memo(Counter);
